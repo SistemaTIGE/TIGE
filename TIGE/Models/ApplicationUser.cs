@@ -3,12 +3,25 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using System;
+using System.Collections.Generic;
 
 namespace TIGE.Models
 {
     public class ApplicationUser : IdentityUser
     {
-        // TODO: Implementar propriedades de usuário que não são implementadas em IdentityUser (classe-mãe)
+        public string CPF { get; set; }
+        public string NomeCompleto { get; set; }
+        public char Sexo { get; set; }
+        public int InstituicaoID { get; set; }
+        public string Endereco { get; set; }
+        public DateTime DataNascimento { get; set; }
+        public string Telefone { get; set; }
+
+        //Propriedade de Navegação
+        public virtual Instituicao Instituicao { get; set; }
+        public virtual ICollection<Inscricoes> Inscricoes { get; set; }
+        public virtual ICollection<Atividade> Atividade { get; set; }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
