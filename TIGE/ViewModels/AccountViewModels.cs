@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace TIGE.Models
+namespace TIGE.ViewModels
 {
     public class ExternalLoginConfirmationViewModel
     {

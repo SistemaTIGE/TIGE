@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
 
-namespace TIGE.Models
+namespace TIGE.ViewModels
 {
     public class IndexViewModel
     {
