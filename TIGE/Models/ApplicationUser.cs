@@ -20,8 +20,9 @@ namespace TIGE.Models
 
         //Propriedade de Navegação
         public virtual Instituicao Instituicao { get; set; }
-        public virtual ICollection<Inscricoes> Inscricoes { get; set; }
-        public virtual ICollection<Atividade> Atividades { get; set; }
+        public virtual ICollection<Inscricao> Inscricoes { get; set; }
+        public virtual ICollection<Atividade> Mentorias { get; set; }
+        public virtual ICollection<InscricaoAtividade> InscricoesAtividades { get; set; }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {

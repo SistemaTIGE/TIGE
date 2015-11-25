@@ -20,7 +20,8 @@ namespace TIGE.Models
         public virtual Area Area { get; set; }
         public virtual Evento Evento { get; set; }
         [ForeignKey("UserID")]
-        public virtual ApplicationUser Usuario { get; set; }
+        public virtual ApplicationUser Mentor { get; set; }
         public virtual ICollection<Documento> Documentos { get; set; }
+        public virtual ICollection<InscricaoAtividade> Inscricoes { get; set; }
     }
 }

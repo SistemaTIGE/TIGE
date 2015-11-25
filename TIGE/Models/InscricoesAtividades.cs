@@ -6,15 +6,16 @@ using System.Web;
 
 namespace TIGE.Models
 {
-    public class Inscricao
+    public class InscricaoAtividade
     {
-        public int InscricaoID { get; set; }
+        public int InscricaoAtividadeID { get; set; }
         public int UserID { get; set; }
-        public int EventoID { get; set; }
+        public int AtividadeID { get; set; }
 
         //Propriedade de Navegação
-        public virtual Evento Evento { get; set; }
+        public virtual Atividade Atividade { get; set; }
         [ForeignKey("UserID")]
         public virtual ApplicationUser Usuario { get; set; }
+
     }
 }
