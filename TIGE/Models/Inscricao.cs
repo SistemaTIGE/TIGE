@@ -9,7 +9,7 @@ namespace TIGE.Models
     public class Inscricao
     {
         public int InscricaoID { get; set; }
-        public int UserID { get; set; }
+        public string UserID { get; set; }
         public int EventoID { get; set; }
 
         //Propriedade de Navegação
