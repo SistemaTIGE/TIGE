@@ -17,5 +17,7 @@ namespace TIGE.DAL
         {
             return new TIGEContext();
         }
+
+        public System.Data.Entity.DbSet<TIGE.Models.Instituicao> Instituicoes { get; set; }
     }
 }
