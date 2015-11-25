@@ -16,6 +16,6 @@ namespace TIGE.Models
         //Propriedade de navegação
         public virtual Instituicao Instituicao { get; set; }
         public virtual ICollection<Inscricoes> Inscricoes { get; set; }
-        public virtual ICollection<Atividade> Atividade { get; set; }
+        public virtual ICollection<Atividade> Atividades { get; set; }
     }
 }

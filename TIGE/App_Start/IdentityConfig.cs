@@ -107,4 +107,20 @@ namespace TIGE
             return new ApplicationSignInManager(context.GetUserManager<ApplicationUserManager>(), context.Authentication);
         }
     }
+
+   // Configure the application role manager which is used in this application.
+    public class ApplicationRoleManager : RoleManager<IdentityRole>
+    {
+        public ApplicationRoleManager(IRoleStore<IdentityRole, string> store) : base(store)
+        {
+            // Empty
+        }
+
+        public static ApplicationRoleManager Create(IdentityFactoryOptions<ApplicationRoleManager> options,
+            IOwinContext context)
+        {
+            var roleStore = new RoleStore<IdentityRole>(context.Get<TIGEContext>());
+            return new ApplicationRoleManager(roleStore);
+        }
+    }
 }

@@ -21,6 +21,6 @@ namespace TIGE.Models
         public virtual Evento Evento { get; set; }
         [ForeignKey("UserID")]
         public virtual ApplicationUser Usuario { get; set; }
-        public virtual ICollection<Documento> Documento { get; set; }
+        public virtual ICollection<Documento> Documentos { get; set; }
     }
 }
