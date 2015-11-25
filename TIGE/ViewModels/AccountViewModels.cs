@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace TIGE.ViewModels
@@ -64,21 +65,51 @@ namespace TIGE.ViewModels
 
     public class RegisterViewModel
     {
-        [Required]
-        [EmailAddress]
+        [Required(ErrorMessage = "Nome Completo é obrigatório.")]
+        [Display(Name = "Nome Completo")]
+        public string NomeCompleto { get; set; }
+
+        [Required(ErrorMessage = "CPF é obrigatório.")]
+        [StringLength(11, ErrorMessage = "CPF necessita de 11 caracteres.", MinimumLength = 11)]
+        [Display(Name = "CPF")]
+        public string CPF { get; set; }
+
+        [Required(ErrorMessage = "Sexo é obrigatório.")]
+        [Display(Name = "Sexo")]
+        public char Sexo { get; set; }
+
+        [Display(Name = "Endereço")]
+        public string Endereco { get; set; }
+
+        [Required(ErrorMessage = "Instituição é obrigatório.")]
+        [Display(Name = "Instituição")]
+        public int InstituicaoID { get; set; }
+
+        [Required(ErrorMessage = "Telefone é obrigatório.")]
+        //TODO: Estudar melhor método para verificação do tamanho máximo e mínimo de número telefônico.
+        [Display(Name = "Telefone")]
+        public string Telefone { get; set; }
+
+        [Required(ErrorMessage = "Data de Nascimento é obrigatório.")]
+        [DataType(DataType.Date, ErrorMessage = "Data de Nascimento inválida.")]
+        [Display(Name = "Data de Nascimento")]
+        public DateTime DataNascimento { get; set; }
+
+        [Required(ErrorMessage = "Email é obrigatório.")]
+        [EmailAddress(ErrorMessage = "Email inválido.")]
         [Display(Name = "Email")]
         public string Email { get; set; }
 
-        [Required]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [Required(ErrorMessage = "Senha é obrigatório")]
+        [StringLength(100, ErrorMessage = "{0} deve ter no mínimo {2} caracteres.", MinimumLength = 6)]
         [DataType(DataType.Password)]
-        [Display(Name = "Password")]
-        public string Password { get; set; }
+        [Display(Name = "Senha")]
+        public string Senha { get; set; }
 
         [DataType(DataType.Password)]
-        [Display(Name = "Confirm password")]
-        [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
-        public string ConfirmPassword { get; set; }
+        [Display(Name = "Confirmar Senha")]
+        [Compare("Senha", ErrorMessage = "Senhas não combinam.")]
+        public string ConfirmarSenha { get; set; }
     }
 
     public class ResetPasswordViewModel
