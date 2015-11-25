@@ -11,6 +11,6 @@ namespace TIGE.Models
         public string Nome { get; set; }
 
         //Propriedade de Navegação
-        public virtual ICollection<Atividade> Atividade { get; set; }
+        public virtual ICollection<Atividade> Atividades { get; set; }
     }
 }
