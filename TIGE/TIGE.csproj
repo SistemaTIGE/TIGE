@@ -168,6 +168,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\EventosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InstituicoesController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -182,6 +183,10 @@
     <Compile Include="Migrations\201601271155393_Sexo.cs" />
     <Compile Include="Migrations\201601271155393_Sexo.Designer.cs">
       <DependentUpon>201601271155393_Sexo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601271349413_TipoDeEvento.cs" />
+    <Compile Include="Migrations\201601271349413_TipoDeEvento.Designer.cs">
+      <DependentUpon>201601271349413_TipoDeEvento.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Area.cs" />
@@ -258,6 +263,11 @@
     <Content Include="Views\Instituicoes\Details.cshtml" />
     <Content Include="Views\Instituicoes\Edit.cshtml" />
     <Content Include="Views\Instituicoes\Index.cshtml" />
+    <Content Include="Views\Eventos\Create.cshtml" />
+    <Content Include="Views\Eventos\Delete.cshtml" />
+    <Content Include="Views\Eventos\Details.cshtml" />
+    <Content Include="Views\Eventos\Edit.cshtml" />
+    <Content Include="Views\Eventos\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -275,6 +285,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201601271155393_Sexo.resx">
       <DependentUpon>201601271155393_Sexo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601271349413_TipoDeEvento.resx">
+      <DependentUpon>201601271349413_TipoDeEvento.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

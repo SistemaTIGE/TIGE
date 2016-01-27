@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNet.Identity.EntityFramework;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using TIGE.Models;
@@ -18,6 +19,12 @@ namespace TIGE.DAL
             return new TIGEContext();
         }
 
-        public System.Data.Entity.DbSet<TIGE.Models.Instituicao> Instituicoes { get; set; }
+        public DbSet<Instituicao> Instituicoes { get; set; }
+        public DbSet<Evento> Eventos { get; set; }
+        public DbSet<Area> Areas { get; set; }
+        public DbSet<Atividade> Atividades { get; set; }
+        public DbSet<Documento> Documentos { get; set; }
+        public DbSet<Inscricao> Inscricoes { get; set; }
+        public DbSet<InscricaoAtividade> InscricoesAtividades { get; set; }
     }
 }

@@ -12,7 +12,7 @@ using TIGE.ViewModels;
 
 namespace TIGE.Controllers
 {
-    //[Authorize(Roles = "Administrador")]
+    [Authorize(Roles = "Super")]
     public class InstituicoesController : Controller
     {
         private TIGEContext db = new TIGEContext();

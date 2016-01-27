@@ -5,12 +5,20 @@ using System.Web;
 
 namespace TIGE.Models
 {
+    public enum TipoEvento
+    {
+        Publico,
+        Interno,
+        Privado
+    }
+
     public class Evento
     {
         public int EventoID { get; set; }
         public string Nome { get; set; }
         public string Descricao { get; set; }
         public bool Inscritivel { get; set; }
+        public TipoEvento Tipo { get; set; }
         public int InstituicaoID { get; set; }
 
         //Propriedade de navegação
