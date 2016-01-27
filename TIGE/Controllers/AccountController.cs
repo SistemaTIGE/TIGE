@@ -10,6 +10,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using TIGE.ViewModels;
 using TIGE.Models;
+using TIGE.DAL;
 
 namespace TIGE.Controllers
 {
@@ -23,7 +24,7 @@ namespace TIGE.Controllers
         {
         }
 
-        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
+        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
         {
             UserManager = userManager;
             SignInManager = signInManager;
@@ -140,6 +141,12 @@ namespace TIGE.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
+            using (var context = new TIGEContext())
+            {
+                ViewBag.InstituicaoID = new SelectList(context.Instituicoes.OrderBy(m => m.Nome).ToList(),
+                    "InstituicaoID", "Nome");
+            }
+
             return View();
         }
 
@@ -152,21 +159,38 @@ namespace TIGE.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email, CPF = model.CPF,
+                    NomeCompleto = model.NomeCompleto, DataNascimento = model.DataNascimento,
+                    Sexo = model.Sexo, InstituicaoID = model.InstituicaoID, Telefone = model.Telefone,
+                    Endereco = model.Endereco };
                 var result = await UserManager.CreateAsync(user, model.Senha);
+
                 if (result.Succeeded)
                 {
-                    await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    
-                    // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
-                    // Send an email with this link
-                    // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
-                    // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
-                    // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
+                    var roleResult = await UserManager.AddToRoleAsync(user.Id, "Participante");
 
-                    return RedirectToAction("Index", "Home");
+                    if (roleResult.Succeeded)
+                    {
+                        await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
+                    
+                        // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
+                        // Send an email with this link
+                        // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
+                        // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
+                        // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
+
+                        return RedirectToAction("Index", "Home");
+                    }
+
+                    AddErrors(roleResult);
                 }
                 AddErrors(result);
+            }
+
+            using (var context = new TIGEContext())
+            {
+                ViewBag.InstituicaoID = new SelectList(context.Instituicoes.OrderBy(m => m.Nome).ToList(),
+                    "InstituicaoID", "Nome");
             }
 
             // If we got this far, something failed, redisplay form

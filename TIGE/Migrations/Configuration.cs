@@ -1,5 +1,6 @@
 namespace TIGE.Migrations
 {
+    using Microsoft.AspNet.Identity.EntityFramework;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
@@ -14,18 +15,17 @@ namespace TIGE.Migrations
 
         protected override void Seed(TIGE.DAL.TIGEContext context)
         {
-            //  This method will be called after migrating to the latest version.
+            context.Roles.AddOrUpdate(m => m.Name,
+                new IdentityRole { Name = "Super" },
+                new IdentityRole { Name = "Administrador" },
+                new IdentityRole { Name = "Moderador" },
+                new IdentityRole { Name = "Palestrante" },
+                new IdentityRole { Name = "Participante" });
+            context.SaveChanges();
 
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data. E.g.
-            //
-            //    context.People.AddOrUpdate(
-            //      p => p.FullName,
-            //      new Person { FullName = "Andrew Peters" },
-            //      new Person { FullName = "Brice Lambson" },
-            //      new Person { FullName = "Rowan Miller" }
-            //    );
-            //
+            context.Instituicoes.AddOrUpdate(m => m.Nome,
+                new Models.Instituicao { Nome = "IFRN Campus Parnamirim" },
+                new Models.Instituicao { Nome = "IFRN Campus Natal-Central" });
         }
     }
 }

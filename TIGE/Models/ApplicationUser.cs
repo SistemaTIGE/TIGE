@@ -8,11 +8,17 @@ using System.Collections.Generic;
 
 namespace TIGE.Models
 {
+    public enum Sexo
+    {
+        Masculino,
+        Feminino
+    }
+
     public class ApplicationUser : IdentityUser
     {
         public string CPF { get; set; }
         public string NomeCompleto { get; set; }
-        public char Sexo { get; set; }
+        public Sexo Sexo { get; set; }
         public int InstituicaoID { get; set; }
         public string Endereco { get; set; }
         public DateTime DataNascimento { get; set; }

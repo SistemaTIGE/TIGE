@@ -179,6 +179,10 @@
     <Compile Include="Migrations\201511251403564_InitialMigration.Designer.cs">
       <DependentUpon>201511251403564_InitialMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201601271155393_Sexo.cs" />
+    <Compile Include="Migrations\201601271155393_Sexo.Designer.cs">
+      <DependentUpon>201601271155393_Sexo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Area.cs" />
     <Compile Include="Models\Atividade.cs" />
@@ -269,6 +273,9 @@
     <EmbeddedResource Include="Migrations\201511251403564_InitialMigration.resx">
       <DependentUpon>201511251403564_InitialMigration.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601271155393_Sexo.resx">
+      <DependentUpon>201601271155393_Sexo.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -288,7 +295,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>31604</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:31604/</IISUrl>
+          <IISUrl>https://localhost:44300/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

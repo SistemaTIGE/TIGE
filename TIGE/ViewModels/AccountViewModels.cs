@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using TIGE.Models;
 
 namespace TIGE.ViewModels
 {
@@ -76,7 +77,7 @@ namespace TIGE.ViewModels
 
         [Required(ErrorMessage = "Sexo é obrigatório.")]
         [Display(Name = "Sexo")]
-        public char Sexo { get; set; }
+        public Sexo Sexo { get; set; }
 
         [Display(Name = "Endereço")]
         public string Endereco { get; set; }
@@ -86,7 +87,7 @@ namespace TIGE.ViewModels
         public int InstituicaoID { get; set; }
 
         [Required(ErrorMessage = "Telefone é obrigatório.")]
-        //TODO: Estudar melhor método para verificação do tamanho máximo e mínimo de número telefônico.
+        //TODO Estudar melhor método para verificação do tamanho máximo e mínimo de número telefônico.
         [Display(Name = "Telefone")]
         public string Telefone { get; set; }
 
