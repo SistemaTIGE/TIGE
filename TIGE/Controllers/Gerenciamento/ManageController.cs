@@ -6,9 +6,9 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using TIGE.ViewModels;
+using TIGE.ViewModels.Gerenciamento;
 
-namespace TIGE.Controllers.Management
+namespace TIGE.Controllers.Gerenciamento
 {
     [Authorize]
     public class ManageController : Controller

@@ -10,9 +10,9 @@ using System.Web;
 using System.Web.Mvc;
 using TIGE.DAL;
 using TIGE.Models;
-using TIGE.ViewModels;
+using TIGE.ViewModels.Gerenciamento;
 
-namespace TIGE.Controllers.Management
+namespace TIGE.Controllers.Gerenciamento
 {
     [Authorize(Roles = "Administrador, Super")]
     public class EventosController : Controller

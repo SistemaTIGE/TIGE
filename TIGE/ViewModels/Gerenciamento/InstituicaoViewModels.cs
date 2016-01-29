@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace TIGE.ViewModels
+namespace TIGE.ViewModels.Gerenciamento
 {
     public class CriarInstituicaoViewModel
     {
