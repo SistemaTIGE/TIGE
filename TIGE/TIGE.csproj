@@ -168,14 +168,15 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\EventosController.cs" />
+    <Compile Include="Controllers\Management\EventosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\InstituicoesController.cs" />
-    <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\Management\InstituicoesController.cs" />
+    <Compile Include="Controllers\Management\ManageController.cs" />
     <Compile Include="DAL\TIGEContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\Extensions.cs" />
     <Compile Include="Migrations\201511251403564_InitialMigration.cs" />
     <Compile Include="Migrations\201511251403564_InitialMigration.Designer.cs">
       <DependentUpon>201511251403564_InitialMigration.cs</DependentUpon>
@@ -198,6 +199,7 @@
     <Compile Include="Models\Instituicao.cs" />
     <Compile Include="ViewModels\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
+    <Compile Include="ViewModels\EventoViewModels.cs" />
     <Compile Include="ViewModels\InstituicaoViewModels.cs" />
     <Compile Include="ViewModels\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

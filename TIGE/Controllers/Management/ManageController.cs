@@ -8,7 +8,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using TIGE.ViewModels;
 
-namespace TIGE.Controllers
+namespace TIGE.Controllers.Management
 {
     [Authorize]
     public class ManageController : Controller

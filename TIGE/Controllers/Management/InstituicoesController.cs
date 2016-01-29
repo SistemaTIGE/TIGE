@@ -10,7 +10,7 @@ using TIGE.DAL;
 using TIGE.Models;
 using TIGE.ViewModels;
 
-namespace TIGE.Controllers
+namespace TIGE.Controllers.Management
 {
     [Authorize(Roles = "Super")]
     public class InstituicoesController : Controller
@@ -49,7 +49,7 @@ namespace TIGE.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(AddInstituicaoViewModel viewModel)
+        public ActionResult Create(CriarInstituicaoViewModel viewModel)
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +78,7 @@ namespace TIGE.Controllers
                 return HttpNotFound();
             }
 
-            var viewModel = new EditInstituicaoViewModel
+            var viewModel = new EditarInstituicaoViewModel
             {
                 InstituicaoID = instituicao.InstituicaoID,
                 Nome = instituicao.Nome
@@ -91,7 +91,7 @@ namespace TIGE.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(EditInstituicaoViewModel viewModel)
+        public ActionResult Edit(EditarInstituicaoViewModel viewModel)
         {
             if (ModelState.IsValid)
             {

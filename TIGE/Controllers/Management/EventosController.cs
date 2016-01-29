@@ -10,8 +10,9 @@ using System.Web;
 using System.Web.Mvc;
 using TIGE.DAL;
 using TIGE.Models;
+using TIGE.ViewModels;
 
-namespace TIGE.Controllers
+namespace TIGE.Controllers.Management
 {
     [Authorize(Roles = "Administrador, Super")]
     public class EventosController : Controller
@@ -87,17 +88,29 @@ namespace TIGE.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Nome,Descricao,Inscritivel,Tipo,InstituicaoID")] Evento evento)
+        public ActionResult Create(CriarEventoViewModel model)
         {
             if (ModelState.IsValid)
             {
+                Evento evento = new Evento
+                {
+                    Nome = model.Nome,
+                    Descricao = model.Descricao,
+                    Inscritivel = model.Inscritivel,
+                    Tipo = model.Tipo == CriarEventoViewModel.TipoEvento.Interno ? TipoEvento.Interno
+                        : model.Tipo == CriarEventoViewModel.TipoEvento.Privado ? TipoEvento.Privado
+                        : TipoEvento.Publico,
+                    InstituicaoID = model.InstituicaoID
+                };
+
                 db.Eventos.Add(evento);
                 db.SaveChanges();
+                
                 return RedirectToAction("Index");
             }
 
-            ViewBag.InstituicaoID = new SelectList(db.Instituicoes, "InstituicaoID", "Nome", evento.InstituicaoID);
-            return View(evento);
+            ViewBag.InstituicaoID = new SelectList(db.Instituicoes, "InstituicaoID", "Nome", model.InstituicaoID);
+            return View(model);
         }
 
         // GET: Eventos/Edit/5
@@ -113,7 +126,20 @@ namespace TIGE.Controllers
                 return HttpNotFound();
             }
             ViewBag.InstituicaoID = new SelectList(db.Instituicoes, "InstituicaoID", "Nome", evento.InstituicaoID);
-            return View(evento);
+
+            EditarEventoViewModel model = new EditarEventoViewModel
+            {
+                EventoID = evento.EventoID,
+                Descricao = evento.Descricao,
+                Nome = evento.Nome,
+                Inscritivel = evento.Inscritivel,
+                Tipo = evento.Tipo == TipoEvento.Interno ? EditarEventoViewModel.TipoEvento.Privado
+                    : evento.Tipo == TipoEvento.Privado ? EditarEventoViewModel.TipoEvento.Privado
+                    : EditarEventoViewModel.TipoEvento.Publico,
+                InstituicaoID = evento.InstituicaoID
+            };
+
+            return View(model);
         }
 
         // POST: Eventos/Edit/5
@@ -121,11 +147,20 @@ namespace TIGE.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "EventoID,Nome,Descricao,Inscritivel,InstituicaoID")] Evento evento)
+        public ActionResult Edit(EditarEventoViewModel evento)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(evento).State = EntityState.Modified;
+                var entry = db.Eventos.Find(evento.EventoID);
+
+                entry.Nome = evento.Nome;
+                entry.Descricao = evento.Descricao;
+                entry.Inscritivel = evento.Inscritivel;
+                entry.InstituicaoID = evento.InstituicaoID;
+                entry.Tipo = evento.Tipo == EditarEventoViewModel.TipoEvento.Interno ? TipoEvento.Interno
+                    : evento.Tipo == EditarEventoViewModel.TipoEvento.Privado ? TipoEvento.Privado
+                    : TipoEvento.Publico;
+
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }

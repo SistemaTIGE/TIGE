@@ -6,14 +6,14 @@ using System.Web;
 
 namespace TIGE.ViewModels
 {
-    public class AddInstituicaoViewModel
+    public class CriarInstituicaoViewModel
     {
         [Required(ErrorMessage = "Nome da Instituição é obrigatório.")]
         [Display(Name = "Nome da Instituição")]
         public string Nome { get; set; }
     }
 
-    public class EditInstituicaoViewModel
+    public class EditarInstituicaoViewModel
     {
         public int InstituicaoID { get; set; }
 
