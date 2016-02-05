@@ -17,6 +17,7 @@ namespace TIGE.Models
         public int EventoID { get; set; }
         public string Nome { get; set; }
         public string Descricao { get; set; }
+        public string LogoURL { get; set; }
         public bool Inscritivel { get; set; }
         public TipoEvento Tipo { get; set; }
         public int InstituicaoID { get; set; }

@@ -7,13 +7,13 @@ namespace TIGE.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class TipoDeEvento : IMigrationMetadata
+    public sealed partial class Initial : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(TipoDeEvento));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Initial));
         
         string IMigrationMetadata.Id
         {
-            get { return "201601271349413_TipoDeEvento"; }
+            get { return "201602051133048_Initial"; }
         }
         
         string IMigrationMetadata.Source

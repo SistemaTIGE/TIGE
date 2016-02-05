@@ -12,6 +12,7 @@ using TIGE.ViewModels.Gerenciamento;
 
 namespace TIGE.Controllers.Gerenciamento
 {
+    [RoutePrefix("Gerenciamento")]
     [Authorize(Roles = "Super")]
     public class InstituicoesController : Controller
     {

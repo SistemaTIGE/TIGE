@@ -10,6 +10,7 @@ using TIGE.ViewModels.Gerenciamento;
 
 namespace TIGE.Controllers.Gerenciamento
 {
+    [RoutePrefix("Gerenciamento")]
     public class RolesController : Controller
     {
         private TIGEContext db = new TIGEContext();

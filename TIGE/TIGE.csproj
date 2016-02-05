@@ -178,17 +178,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\Extensions.cs" />
-    <Compile Include="Migrations\201511251403564_InitialMigration.cs" />
-    <Compile Include="Migrations\201511251403564_InitialMigration.Designer.cs">
-      <DependentUpon>201511251403564_InitialMigration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201601271155393_Sexo.cs" />
-    <Compile Include="Migrations\201601271155393_Sexo.Designer.cs">
-      <DependentUpon>201601271155393_Sexo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201601271349413_TipoDeEvento.cs" />
-    <Compile Include="Migrations\201601271349413_TipoDeEvento.Designer.cs">
-      <DependentUpon>201601271349413_TipoDeEvento.cs</DependentUpon>
+    <Compile Include="Migrations\201602051133048_Initial.cs" />
+    <Compile Include="Migrations\201602051133048_Initial.Designer.cs">
+      <DependentUpon>201602051133048_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Area.cs" />
@@ -208,22 +200,40 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Imagens\logomarca.png" />
+    <Content Include="Content\Imagens\logo_5.png" />
+    <Content Include="Content\Imagens\sem.jpg" />
+    <Content Include="Content\Imagens\sem.png" />
+    <Content Include="Content\Imagens\tige.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
-    <Content Include="Scripts\jquery-1.10.2.js" />
-    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery-2.2.0.intellisense.js" />
+    <Content Include="Scripts\jquery-2.2.0.js" />
+    <Content Include="Scripts\jquery-2.2.0.min.js" />
+    <Content Include="Scripts\jquery-2.2.0.min.map" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\master-page.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
@@ -278,21 +288,11 @@
     <Folder Include="Views\Roles\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
-    <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201511251403564_InitialMigration.resx">
-      <DependentUpon>201511251403564_InitialMigration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201601271155393_Sexo.resx">
-      <DependentUpon>201601271155393_Sexo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201601271349413_TipoDeEvento.resx">
-      <DependentUpon>201601271349413_TipoDeEvento.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201602051133048_Initial.resx">
+      <DependentUpon>201602051133048_Initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
